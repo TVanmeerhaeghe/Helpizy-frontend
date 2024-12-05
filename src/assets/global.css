@@ -10,7 +10,9 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5 {
   font-family: 'Shantell Sans', cursive;
   margin: 0;
   font-weight: 600;
@@ -54,10 +56,37 @@ button {
   font-weight: 700;
 }
 
+.title-number {
+  font-family: 'Shantell Sans', cursive;
+  font-size: 60px;
+  color: #53b1fd;
+  margin-bottom: 0;
+}
+
 .font-20 {
   font-size: 20px;
 }
 
 .title-36 {
   font-size: 36px;
+}
+
+.separator {
+  background-image: url('../assets/global/separator.svg');
+  height: 4px;
+  width: 151px;
+}
+
+.checked-true::before {
+  content: url('../assets/global/true_icon.svg');
+  margin-right: 10px;
+}
+
+.checked-false::before {
+  content: url('../assets/global/false_icon.svg');
+  margin-right: 10px;
+}
+
+.margin-b-0 {
+  margin-bottom: 0;
 }

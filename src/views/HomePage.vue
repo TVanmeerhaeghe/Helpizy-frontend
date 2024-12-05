@@ -23,16 +23,89 @@
         <button class="button-orange txt-button">Dite m'en plus !</button>
       </div>
     </section>
+    <section class="explication-two">
+      <div class="separator"></div>
+      <div class="explication-two-items">
+        <div class="explication-two-item">
+          <img src="../assets/home/Help.svg" alt="Picto aide" />
+          <h3 class="font-20">
+            Simplifie tes démarches administratives et quotidiennes.
+          </h3>
+        </div>
+        <div class="explication-two-item">
+          <img
+            src="../assets/home/Investing_Hourglass.svg"
+            alt="Picto Sablier"
+          />
+          <h3 class="font-20">Gagne du temps précieux</h3>
+        </div>
+        <div class="explication-two-item">
+          <img src="../assets/home/Product_Manual.svg" alt="picto manuel" />
+          <h3 class="font-20">Sois serein(e), on te guide à chaque étape</h3>
+        </div>
+      </div>
+      <div class="separator"></div>
+    </section>
+    <AppCategories />
+    <section class="subscription">
+      <div class="subscription-txt">
+        <p class="title-blue title-bold">Notre abonnement</p>
+        <h3 class="title-36">Bénéfice d’encore plus d’ accompagnement</h3>
+        <p class="font-20 txt-subscription">
+          Opter pour notre version premium, c’est bénéficier d’encore plus
+          d’articles illustrés en vidéo, sans aucune publicité !
+        </p>
+      </div>
+      <div class="subscription-content">
+        <h5 class="title-36">0.99€ / mois</h5>
+        <h5 class="font-20">ou 10€ / an</h5>
+        <p class="font-20 margin-b-0">Avec :</p>
+        <ul>
+          <li class="checked-true">+ 1000 tutoriels supplémentaires</li>
+          <li class="checked-true">Accès à des vidéos démonstratives</li>
+          <li class="checked-true">Accès à un interlocuteur “expert”</li>
+          <li class="checked-false">Publicité</li>
+        </ul>
+        <button class="button-orange">Je m'abonne maintenant</button>
+      </div>
+    </section>
+    <section class="form">
+      <div class="form-txt">
+        <img src="../assets/home/Voice.svg" alt="Picto voix" />
+        <h4 class="title-36">Ta <span class="title-blue">voix</span> compte</h4>
+        <p class="font-20 txt-subscription">
+          Contribue à notre communauté en ajoutant tes recommandations sur les
+          articles existants et propose de nouvelles idées d'articles via le
+          formulaire ci-dessous. Ensemble, rendons Helpizy encore plus utile !
+        </p>
+      </div>
+      <div class="form-number">
+        <div>
+          <p class="title-number">800</p>
+          <p class="number-txt">utilisateurs mensuels</p>
+        </div>
+        <div>
+          <p class="title-number">500+</p>
+          <p class="number-txt">contributions</p>
+        </div>
+        <div>
+          <p class="title-number">96%</p>
+          <p class="number-txt">Prises en comptes</p>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import HeroBanner from '@/features/HeroBanner.vue';
+import AppCategories from '@/components/Categories.vue';
 
 export default {
   name: 'HomePage',
   components: {
     HeroBanner,
+    AppCategories,
   },
 };
 </script>
@@ -65,5 +138,119 @@ export default {
 
 .txt-button {
   width: 180px;
+}
+
+.explication-two {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.explication-two-items {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  margin: 30px 0;
+}
+
+.explication-two-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 460px;
+}
+
+.explication-two-item img {
+  margin-right: 20px;
+}
+
+.subscription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafb;
+  padding: 100px 0;
+  background-image: url('../assets/home/arrow-grey.svg');
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 250px;
+}
+
+.subscription-txt {
+  text-align: center;
+}
+
+.txt-subscription {
+  max-width: 750px;
+}
+
+.subscription-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow:
+    0px 4px 6px -2px #1018282e,
+    0px 12px 16px -4px #10182826;
+  border: 1px solid #eaecf0;
+  max-width: 767px;
+  width: 100%;
+  margin-top: 80px;
+}
+
+.subscription-content ul li {
+  display: flex;
+  margin-top: 5px;
+}
+
+.subscription-content button {
+  width: 500px;
+  margin-top: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.form-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-txt p {
+  text-align: center;
+}
+
+.number-txt {
+  font-family: 'Shantell Sans', cursive;
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+  margin-top: 0;
+}
+
+.form-number {
+  display: flex;
+  justify-content: space-between;
+  max-width: 780px;
+  width: 100%;
+}
+
+.form-number div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

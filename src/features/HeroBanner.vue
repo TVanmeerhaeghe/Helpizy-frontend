@@ -26,7 +26,11 @@
       </div>
     </div>
     <div class="picto-bottom">
-      <img src="../assets/home/arrow-grey.svg" alt="fleche grisse" />
+      <img
+        src="../assets/home/arrow-grey.svg"
+        alt="fleche grise"
+        class="picto-fleche"
+      />
       <img src="../assets/home/motivate-someone.svg" alt="picto motivation" />
     </div>
   </section>
@@ -132,5 +136,9 @@ export default {
   max-width: 1450px;
   width: 100%;
   justify-content: space-between;
+}
+
+.picto-fleche {
+  margin-left: 20%;
 }
 </style>
