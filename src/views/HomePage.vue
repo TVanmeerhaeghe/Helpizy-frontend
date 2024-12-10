@@ -3,10 +3,7 @@
     <HeroBanner />
     <section class="explication">
       <div>
-        <img
-          src="../assets/home/meditation-yoga.svg"
-          alt="illustration méditation"
-        />
+        <img src="../assets/home/meditation-yoga.svg" alt="illustration méditation" />
       </div>
       <div class="texte-explication">
         <p class="title-blue title-bold">Simplifiez votre vie quotidienne</p>
@@ -33,10 +30,7 @@
           </h3>
         </div>
         <div class="explication-two-item">
-          <img
-            src="../assets/home/Investing_Hourglass.svg"
-            alt="Picto Sablier"
-          />
+          <img src="../assets/home/Investing_Hourglass.svg" alt="Picto Sablier" />
           <h3 class="font-20">Gagne du temps précieux</h3>
         </div>
         <div class="explication-two-item">
@@ -95,6 +89,7 @@
       </div>
       <AppForm />
     </section>
+    <ArticlesView />
   </div>
 </template>
 
@@ -102,6 +97,7 @@
 import HeroBanner from '@/features/HeroBanner.vue';
 import AppCategories from '@/components/Categories.vue';
 import AppForm from '@/components/Form.vue';
+import ArticlesView from '@/features/ArticlesView.vue';
 
 export default {
   name: 'HomePage',
@@ -109,6 +105,7 @@ export default {
     HeroBanner,
     AppCategories,
     AppForm,
+    ArticlesView
   },
 };
 </script>
