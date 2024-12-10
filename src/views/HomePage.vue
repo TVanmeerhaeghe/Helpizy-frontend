@@ -90,6 +90,7 @@
       <AppForm />
     </section>
     <ArticlesView />
+    <FAQView />
   </div>
 </template>
 
@@ -98,6 +99,7 @@ import HeroBanner from '@/features/HeroBanner.vue';
 import AppCategories from '@/components/Categories.vue';
 import AppForm from '@/components/Form.vue';
 import ArticlesView from '@/features/ArticlesView.vue';
+import FAQView from '@/features/FAQView.vue';
 
 export default {
   name: 'HomePage',
@@ -105,7 +107,8 @@ export default {
     HeroBanner,
     AppCategories,
     AppForm,
-    ArticlesView
+    ArticlesView,
+    FAQView
   },
 };
 </script>
