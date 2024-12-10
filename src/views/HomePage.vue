@@ -84,7 +84,7 @@
           <p class="title-number">800</p>
           <p class="number-txt">utilisateurs mensuels</p>
         </div>
-        <div>
+        <div class="number-500">
           <p class="title-number">500+</p>
           <p class="number-txt">contributions</p>
         </div>
@@ -93,6 +93,7 @@
           <p class="number-txt">Prises en comptes</p>
         </div>
       </div>
+      <AppForm />
     </section>
   </div>
 </template>
@@ -100,12 +101,14 @@
 <script>
 import HeroBanner from '@/features/HeroBanner.vue';
 import AppCategories from '@/components/Categories.vue';
+import AppForm from '@/components/Form.vue';
 
 export default {
   name: 'HomePage',
   components: {
     HeroBanner,
     AppCategories,
+    AppForm,
   },
 };
 </script>
@@ -186,6 +189,7 @@ export default {
 
 .txt-subscription {
   max-width: 750px;
+  margin-bottom: 50px;
 }
 
 .subscription-content {
@@ -239,6 +243,11 @@ export default {
   font-weight: 600;
   color: black;
   margin-top: 0;
+  margin-bottom: 0;
+}
+
+.title-number {
+  margin-top: 0;
 }
 
 .form-number {
@@ -246,11 +255,18 @@ export default {
   justify-content: space-between;
   max-width: 780px;
   width: 100%;
+  margin-top: 0;
 }
 
 .form-number div {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.number-500 {
+  padding: 0 50px;
+  border-left: 1px solid #eaecf0;
+  border-right: 1px solid #eaecf0;
 }
 </style>
