@@ -90,3 +90,8 @@ button {
 .margin-b-0 {
   margin-bottom: 0;
 }
+
+input::placeholder {
+  color: #667085;
+  font-size: 16px;
+}

@@ -166,11 +166,6 @@ export default {
   display: flex !important;
 }
 
-input::placeholder {
-  color: #667085;
-  font-size: 16px;
-}
-
 .submit-button {
   width: 100%;
   cursor: pointer;
