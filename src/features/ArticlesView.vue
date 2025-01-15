@@ -37,6 +37,6 @@ export default {
 
 .articles-title img {
     position: absolute;
-    left: 30%;
+    left: 100px;
 }
 </style>

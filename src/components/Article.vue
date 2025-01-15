@@ -1,10 +1,15 @@
 <template>
   <section class="article">
-    <div v-for="post in articles" :key="post.id_post" class="post-item">
+    <router-link v-for="post in articles" :key="post.id_post" :to="`/article/${post.id_post}`" class="post-item"
+      style="text-decoration: none; color: inherit;">
       <img :src="post.thumbnail" alt="Thumbnail" @error="handleImageError" />
-      <h5>Catégorie : {{ post.categoryName }}</h5>
+      <h5>{{ post.categoryName }}</h5>
+      <div class="title-content">
+        <h3>{{ post.postTitle }}</h3>
+        <img src="../assets/global/arrow-up-right.svg" alt="" />
+      </div>
       <p>{{ getLimitedDescription(post) }}</p>
-    </div>
+    </router-link>
   </section>
 </template>
 
@@ -26,12 +31,24 @@ export default {
         const data = await response.json();
 
         for (const post of data) {
+          const frenchTranslation = post.translations?.find(
+            (t) => t.id_lang === 1
+          );
+          post.postTitle = frenchTranslation
+            ? frenchTranslation.title
+            : 'Titre inconnu';
+
           try {
             const catResponse = await fetch(
               `${process.env.VUE_APP_API_URL}/category/${post.id_category}`
             );
             const catData = await catResponse.json();
-            post.categoryName = catData.title;
+            const catTranslation = catData.translations?.find(
+              (t) => t.id_lang === 1
+            );
+            post.categoryName = catTranslation
+              ? catTranslation.title
+              : 'Catégorie inconnue';
           } catch (err) {
             post.categoryName = 'Catégorie inconnue';
           }
@@ -65,16 +82,52 @@ export default {
   align-items: flex-start;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-top: 100px;
 }
+
 .post-item {
-  border: 1px solid #ccc;
   margin: 10px;
-  padding: 10px;
+  padding: 24px;
   width: 300px;
   box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0px 12px 16px -4px #10182814;
+  height: 100%;
 }
+
 .post-item img {
   max-width: 100%;
   display: block;
+}
+
+.title-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.title-content img {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.post-item h5 {
+  color: #53B1FD;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 35px;
+}
+
+.post-item h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.post-item p {
+  font-weight: 400;
+  font-size: 16px;
+  color: #667085;
 }
 </style>
