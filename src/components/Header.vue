@@ -1,8 +1,8 @@
 <template>
   <header class="app-header">
     <div class="header-content">
-      <div class="header-nav">
-        <img src="../assets/logo.png" alt="Logo" />
+      <div class="header-nav" v-if="!isAuthPage">
+        <router-link to="/"><img src="../assets/logo.png" alt="Logo" /></router-link>
         <nav class="desktop-menu">
           <ul>
             <li><router-link to="/#">Thèmes</router-link></li>
@@ -13,10 +13,13 @@
       </div>
 
       <div class="header-log desktop-menu">
-        <nav>
+        <div v-if="isLoggedIn" class="user-info">
+          <p>Bonjour {{ user.firstname }} !</p>
+        </div>
+        <nav v-else>
           <ul>
-            <li><router-link to="/#">Se connecter</router-link></li>
-            <li><button>S'inscrire</button></li>
+            <li><router-link to="/login">Se connecter</router-link></li>
+            <li><button><router-link to="/signin">S'inscrire</router-link></button></li>
           </ul>
         </nav>
       </div>
@@ -33,15 +36,13 @@
         <button class="close-button" @click="closeMenu">X</button>
 
         <nav class="mobile-nav">
-          <ul>
-            <li><router-link to="/#" @click="closeMenu">Thèmes</router-link></li>
-            <li><router-link to="/#" @click="closeMenu">S'abonner</router-link></li>
-            <li><router-link to="/#" @click="closeMenu">Contribuer</router-link></li>
+          <ul v-if="!isLoggedIn">
+            <li><router-link to="/login" @click="closeMenu">Se connecter</router-link></li>
+            <li><button><router-link to="/signin" @click="closeMenu">S'inscrire</router-link></button></li>
           </ul>
-          <ul>
-            <li><router-link to="/#" @click="closeMenu">Se connecter</router-link></li>
-            <li><button @click="closeMenu">S'inscrire</button></li>
-          </ul>
+          <div v-else class="user-info">
+            <p>Bonjour {{ user.firstname }} !</p>
+          </div>
         </nav>
       </div>
     </transition>
@@ -50,11 +51,21 @@
 
 <script>
 export default {
-  name: 'AppHeader',
+  name: "AppHeader",
   data() {
     return {
       isMenuOpen: false,
+      user: null,
     };
+  },
+  computed: {
+    isAuthPage() {
+      const authRoutes = ["/login", "/signin"];
+      return authRoutes.includes(this.$route.path);
+    },
+    isLoggedIn() {
+      return !!this.user;
+    },
   },
   methods: {
     toggleMenu() {
@@ -63,6 +74,32 @@ export default {
     closeMenu() {
       this.isMenuOpen = false;
     },
+    loadUser() {
+      try {
+        const authData = JSON.parse(localStorage.getItem("authToken"));
+        if (authData && authData.token) {
+          const expirationDate = new Date(authData.expiration);
+          if (new Date() < expirationDate) {
+            const base64Url = authData.token.split(".")[1];
+            const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+            const jsonPayload = decodeURIComponent(
+              atob(base64)
+                .split("")
+                .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+                .join("")
+            );
+            this.user = JSON.parse(jsonPayload);
+          } else {
+            localStorage.removeItem("authToken")
+          }
+        }
+      } catch (err) {
+        console.error("Erreur lors du chargement des données utilisateur :", err);
+      }
+    },
+  },
+  mounted() {
+    this.loadUser();
   },
 };
 </script>
@@ -95,15 +132,25 @@ export default {
   margin-right: 50px;
 }
 
-.desktop-menu nav ul {
+.desktop-menu ul {
   display: flex;
   align-items: center;
   font-weight: 700;
   font-size: 16px;
 }
 
+.desktop-menu ul:not(.header-log nav ul) {
+  gap: 30px;
+}
+
 .desktop-menu nav ul li {
   margin-right: 30px;
+}
+
+.user-info {
+  font-weight: bold;
+  font-size: 16px;
+  color: #344054;
 }
 
 .hamburger {
@@ -126,14 +173,6 @@ export default {
   border-radius: 2px;
   transition: 0.3s;
   z-index: 5;
-}
-
-@media screen and (max-width: 1080px) {
-  .header-nav img {
-    width: 90px;
-    height: 30px;
-    margin-right: unset;
-  }
 }
 
 @media screen and (max-width: 760px) {
@@ -169,18 +208,6 @@ export default {
   cursor: pointer;
   margin-bottom: 20px;
   color: black;
-}
-
-.mobile-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 30px;
-}
-
-.mobile-nav ul li {
-  margin-bottom: 16px;
-  font-weight: 700;
-  font-size: 18px;
 }
 
 .slide-enter-active,

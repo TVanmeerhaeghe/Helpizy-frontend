@@ -184,6 +184,7 @@ export default {
   background-position-y: center;
   background-position-x: 250px;
   padding: 30px;
+  padding-bottom: 80px;
 }
 
 .subscription-txt {

@@ -17,7 +17,7 @@
     <div class="search">
       <div class="search-bar">
         <i class="search-icon"></i>
-        <input type="text" placeholder="Quel est ton problème ?" />
+        <input type="text" v-model="searchQuery" placeholder="Quel est ton problème ?" @keyup.enter="submitSearch" />
         <i class="mic-icon"></i>
       </div>
     </div>
@@ -31,6 +31,18 @@
 <script>
 export default {
   name: 'HeroBanner',
+  data() {
+    return {
+      searchQuery: '',
+    };
+  },
+  methods: {
+    submitSearch() {
+      if (this.searchQuery.trim()) {
+        this.$router.push({ name: 'Search', query: { q: this.searchQuery.trim() } });
+      }
+    },
+  },
 };
 </script>
 

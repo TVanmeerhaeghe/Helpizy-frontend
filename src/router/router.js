@@ -3,6 +3,8 @@ import HomePage from '@/views/HomePage.vue';
 import AppLogin from '@/views/login/LoginForm.vue';
 import AppSignIn from '@/views/login/SignInForm.vue';
 import ArticleDetails from '@/views/ArticleDetails.vue';
+import CategoryResults from '@/views/CategoryResults.vue';
+import SearchResults from '@/views/SearchResults.vue';
 
 const routes = [
   { path: '/', name: 'Home', component: HomePage },
@@ -14,6 +16,16 @@ const routes = [
     component: ArticleDetails,
     props: true,
   },
+  {
+    path: '/category/:id',
+    name: 'Category',
+    component: CategoryResults
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: SearchResults
+  }
 ];
 
 const router = createRouter({

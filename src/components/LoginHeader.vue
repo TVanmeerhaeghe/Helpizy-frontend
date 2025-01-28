@@ -2,7 +2,7 @@
   <header class="app-header">
     <div class="header-content">
       <div class="header-nav">
-        <img src="../assets/logo.png" />
+        <router-link to="/"><img src="../assets/logo.png" /></router-link>
       </div>
     </div>
   </header>
