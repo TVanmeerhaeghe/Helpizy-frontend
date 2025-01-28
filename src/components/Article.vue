@@ -8,7 +8,7 @@
         <h3>{{ post.postTitle }}</h3>
         <img src="../assets/global/arrow-up-right.svg" alt="" />
       </div>
-      <p>{{ getLimitedDescription(post) }}</p>
+      <p>{{ post.excerpt }}</p>
     </router-link>
   </section>
 </template>
@@ -37,6 +37,10 @@ export default {
           post.postTitle = frenchTranslation
             ? frenchTranslation.title
             : 'Titre inconnu';
+
+          post.excerpt = frenchTranslation
+            ? frenchTranslation.excerpt
+            : 'Résumé inconnu';
 
           try {
             const catResponse = await fetch(
@@ -129,5 +133,23 @@ export default {
   font-weight: 400;
   font-size: 16px;
   color: #667085;
+}
+
+@media screen and (max-width: 1080px) {
+  .article {
+    flex-direction: column;
+    width: unset;
+    height: unset;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .article {
+    margin-top: 30px;
+  }
+
+  .post-item h3 {
+    font-size: 18px;
+  }
 }
 </style>

@@ -13,11 +13,7 @@
         tâches de la vie quotidienne.
       </p>
     </div>
-    <img
-      src="../assets/home/asking-question.svg"
-      alt="picto question"
-      class="picto-hero asking"
-    />
+    <img src="../assets/home/asking-question.svg" alt="picto question" class="picto-hero asking" />
     <div class="search">
       <div class="search-bar">
         <i class="search-icon"></i>
@@ -26,12 +22,8 @@
       </div>
     </div>
     <div class="picto-bottom">
-      <img
-        src="../assets/home/arrow-grey.svg"
-        alt="fleche grise"
-        class="picto-fleche"
-      />
-      <img src="../assets/home/motivate-someone.svg" alt="picto motivation" />
+      <img src="../assets/home/arrow-grey.svg" alt="fleche grise" class="picto-fleche" />
+      <img src="../assets/home/motivate-someone.svg" alt="picto motivation" class="picto-motiv" />
     </div>
   </section>
 </template>
@@ -140,5 +132,29 @@ export default {
 
 .picto-fleche {
   margin-left: 20%;
+}
+
+@media screen and (max-width:1350px) {
+  .picto-hero {
+    width: 200px;
+    left: 5%;
+  }
+}
+
+@media screen and (max-width:1150px) {
+  .picto-hero {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width:760px) {
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-banner {
+    padding: 30px;
+    width: unset;
+  }
 }
 </style>

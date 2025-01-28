@@ -1,0 +1,13 @@
+@media screen and (max-width: 1080px) {
+  .picto-hero {
+    display: none;
+  }
+
+  .picto-motiv {
+    width: 200px;
+  }
+
+  .explication img {
+    width: 350px;
+  }
+}

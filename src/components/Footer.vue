@@ -54,11 +54,10 @@ footer {
 }
 
 .footer {
-    padding: 60px 0;
+    padding: 60px 30px;
     display: flex;
     justify-content: space-evenly;
     max-width: 1200px;
-    width: 100%;
     margin: 0 auto;
     gap: 70px;
 }
@@ -112,5 +111,27 @@ input::placeholder {
     margin-left: 15px;
     width: 100px;
     cursor: pointer;
+}
+
+@media screen and (max-width:1080px) {
+    .footer {
+        max-width: unset;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo {
+        width: unset;
+    }
+}
+
+@media screen and (max-width:760px) {
+    .newsletter-input {
+        width: unset;
+    }
+
+    .newsletter-container {
+        width: unset;
+    }
 }
 </style>

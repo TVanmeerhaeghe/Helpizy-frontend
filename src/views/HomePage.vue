@@ -127,6 +127,7 @@ export default {
   max-width: 1250px;
   margin: 0 auto;
   gap: 90px;
+  padding: 30px;
 }
 
 .texte-explication {
@@ -156,6 +157,7 @@ export default {
   flex-direction: row;
   gap: 50px;
   margin: 30px 0;
+  padding: 30px;
 }
 
 .explication-two-item {
@@ -181,6 +183,7 @@ export default {
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: 250px;
+  padding: 30px;
 }
 
 .subscription-txt {
@@ -224,6 +227,7 @@ export default {
   justify-content: center;
   align-items: center;
   margin-top: 60px;
+  padding: 30px;
 }
 
 .form-txt {
@@ -268,5 +272,71 @@ export default {
   padding: 0 50px;
   border-left: 1px solid #eaecf0;
   border-right: 1px solid #eaecf0;
+}
+
+@media screen and (max-width: 1350px) {
+  .explication {
+    max-width: 1100px;
+  }
+
+  .faqs {
+    max-width: 950px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+
+  .explication {
+    max-width: 700px;
+  }
+
+  .explication-two-items {
+    flex-direction: column;
+  }
+
+  .subscription-content {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+
+  .explication {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    max-width: unset;
+    width: unset;
+  }
+
+  .subscription-content button {
+    width: unset;
+  }
+
+  .subscription-content {
+    margin-top: unset;
+  }
+
+  .form-number {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .number-500 {
+    border: unset;
+  }
+
+  .title-number {
+    font-size: 40px;
+  }
+
+  .suggestion-form {
+    margin-top: 50px;
+  }
+
+  .explication img {
+    width: 250px;
+  }
+
 }
 </style>

@@ -35,8 +35,33 @@ export default {
     font-weight: 500;
 }
 
+.articles-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+}
+
 .articles-title img {
-    position: absolute;
-    left: 100px;
+    margin-right: 20px;
+}
+
+.articles-title h4 {
+    flex: 1;
+    text-align: center;
+}
+
+@media screen and (max-width: 760px) {
+    .articles-title img {
+        width: 50px;
+    }
+
+    .articles h4 {
+        font-size: 25px;
+    }
+
+    .articles {
+        padding: 30px;
+    }
 }
 </style>

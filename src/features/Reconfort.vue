@@ -20,7 +20,7 @@ export default {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 60px 0;
+    padding: 60px 30px;
 }
 
 .reconfort h5 {
@@ -35,5 +35,25 @@ export default {
     width: 150px;
     height: 50px;
     cursor: pointer;
+}
+
+@media screen and (max-width:1080px) {
+    .reconfort {
+        flex-direction: column;
+    }
+
+    .reconfort-title {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:760px) {
+    .reconfort h5 {
+        font-size: 25px;
+    }
+
+    .reconfort p {
+        font-size: 18px;
+    }
 }
 </style>
