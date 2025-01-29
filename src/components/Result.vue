@@ -191,4 +191,23 @@ li.post-item {
     font-size: 14px;
     margin-bottom: 50px;
 }
+
+@media screen and (max-width:760px) {
+    li.post-item {
+        padding: 10px 20px;
+    }
+
+    .result-container h2 {
+        font-size: 20px;
+    }
+
+    .result-container h4 {
+        font-size: 16px;
+    }
+
+    .post-thumbnail img {
+        width: 75px;
+        height: 75px;
+    }
+}
 </style>

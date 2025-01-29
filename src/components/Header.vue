@@ -36,6 +36,11 @@
         <button class="close-button" @click="closeMenu">X</button>
 
         <nav class="mobile-nav">
+          <ul>
+            <li><router-link to="/#">Thèmes</router-link></li>
+            <li><router-link to="/#">S'abonner</router-link></li>
+            <li><router-link to="/#">Contribuer</router-link></li>
+          </ul>
           <ul v-if="!isLoggedIn">
             <li><router-link to="/login" @click="closeMenu">Se connecter</router-link></li>
             <li><button><router-link to="/signin" @click="closeMenu">S'inscrire</router-link></button></li>
@@ -183,13 +188,21 @@ export default {
   .hamburger {
     display: block;
   }
+
+  .mobile-nav ul li {
+    font-size: 20px;
+  }
+
+  .mobile-nav ul {
+    padding-left: unset;
+  }
 }
 
 .mobile-menu {
   position: fixed;
   top: 0;
   right: 0;
-  width: 90%;
+  width: 50%;
   max-width: 300px;
   height: 100vh;
   background-color: #f9fafb;

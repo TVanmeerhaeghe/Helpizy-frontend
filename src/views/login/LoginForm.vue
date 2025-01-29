@@ -170,4 +170,26 @@ input:focus {
   height: 22px;
   margin-right: 10px;
 }
+
+@media screen and (max-width:1080px) {
+  .login-card {
+    max-width: 560px;
+  }
+}
+
+@media screen and (max-width:760px) {
+  .login-card {
+    max-width: 300px;
+    width: 70%;
+    padding: 30px 20px;
+  }
+
+  .social-login {
+    margin-top: 30px;
+  }
+
+  .social-login button p {
+    font-size: 13px;
+  }
+}
 </style>

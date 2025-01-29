@@ -162,4 +162,18 @@ input:focus {
   font-size: 12px;
   margin-top: 5px;
 }
+
+@media screen and (max-width:1080px) {
+  .signup-card {
+    max-width: 560px;
+  }
+}
+
+@media screen and (max-width:760px) {
+  .signup-card {
+    max-width: 300px;
+    width: 70%;
+    padding: 30px 20px;
+  }
+}
 </style>

@@ -291,4 +291,79 @@ video {
 .counters .like {
     cursor: pointer;
 }
+
+@media screen and (max-width:1080px) {
+    .article-details {
+        max-width: 760px;
+    }
+
+    .article-content h1 {
+        font-size: 36px;
+        max-width: 560px;
+    }
+
+    video {
+        max-width: 560px;
+    }
+
+    .article-additional-content {
+        max-width: 560px;
+    }
+
+    .question {
+        max-width: 560px;
+    }
+
+    .author-info {
+        max-width: 560px;
+    }
+
+    .article-details img:not(.question img):not(.author img):not(.counters img) {
+        max-width: 560px;
+    }
+}
+
+@media screen and (max-width:760px) {
+    .article-details img:not(.question img):not(.author img):not(.counters img) {
+        max-width: unset;
+        width: 100%;
+    }
+
+    video,
+
+
+    .author-info {
+        max-width: unset;
+        width: 100%;
+    }
+
+    .article-content h1 {
+        font-size: 25px;
+        max-width: unset;
+        width: 100%;
+    }
+
+    .author-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .question {
+        max-width: unset;
+    }
+
+    .article-additional-content {
+        max-width: unset;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .counters {
+        margin-top: 30px;
+    }
+
+    .question-button {
+        flex-direction: column;
+    }
+}
 </style>
