@@ -1,8 +1,18 @@
 <template>
   <section class="article">
-    <router-link v-for="post in articles" :key="post.id_post" :to="`/article/${post.id_post}`" class="post-item"
-      style="text-decoration: none; color: inherit;">
-      <img :src="post.thumbnail" alt="Thumbnail" @error="handleImageError" />
+    <router-link
+      v-for="post in articles"
+      :key="post.id_post"
+      :to="`/article/${post.id_post}`"
+      class="post-item"
+      style="text-decoration: none; color: inherit"
+    >
+      <img
+        :src="post.thumbnail"
+        alt="Thumbnail"
+        @error="handleImageError"
+        class="img-home-article"
+      />
       <h5>{{ post.categoryName }}</h5>
       <div class="title-content">
         <h3>{{ post.postTitle }}</h3>
@@ -104,6 +114,12 @@ export default {
   display: block;
 }
 
+.img-home-article {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
 .title-content {
   display: flex;
   align-items: flex-start;
@@ -115,7 +131,7 @@ export default {
 }
 
 .post-item h5 {
-  color: #53B1FD;
+  color: #53b1fd;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   font-weight: 600;
