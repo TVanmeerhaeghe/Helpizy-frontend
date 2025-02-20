@@ -178,6 +178,7 @@ export default {
     font-size: 48px;
     text-align: center;
     max-width: 960px;
+    color: #101828;
 }
 
 video {

@@ -85,7 +85,7 @@ export default {
 .search-bar {
   display: flex;
   align-items: center;
-  background-color: #f7f7f7;
+  background-color: white;
   border-radius: 8px;
   padding: 13px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);

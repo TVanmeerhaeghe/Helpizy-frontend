@@ -5,9 +5,9 @@
       <div>
         <img src="../assets/home/meditation-yoga.svg" alt="illustration méditation" />
       </div>
-      <div class="texte-explication">
-        <p class="title-blue title-bold">Simplifiez votre vie quotidienne</p>
-        <h2 class="title-36">
+      <div class="texte-explication txt-center">
+        <p class="title-blue title-bold">Simplifie ton quotidien</p>
+        <h2 class="title-36 txt-center">
           Fini le stress administratif, vis
           <span class="title-blue">sereinement !</span>
         </h2>
@@ -17,7 +17,7 @@
           informations claires et des aides gouvernementales pour te simplifier
           la vie.
         </p>
-        <button class="button-orange txt-button">Dite m'en plus !</button>
+        <button class="button-orange txt-button btn-center">Dite m'en plus !</button>
       </div>
     </section>
     <section class="explication-two">
@@ -44,7 +44,7 @@
     <section class="subscription">
       <div class="subscription-txt">
         <p class="title-blue title-bold">Notre abonnement</p>
-        <h3 class="title-36">Bénéfice d’encore plus d’ accompagnement</h3>
+        <h3 class="title-36">Bénéfice d’encore plus d’ <span class="title-blue">accompagnement</span></h3>
         <p class="font-20 txt-subscription">
           Opter pour notre version premium, c’est bénéficier d’encore plus
           d’articles illustrés en vidéo, sans aucune publicité !
@@ -76,15 +76,15 @@
       <div class="form-number">
         <div>
           <p class="title-number">800</p>
-          <p class="number-txt">utilisateurs mensuels</p>
+          <p class="number-txt">Utilisateurs mensuels</p>
         </div>
         <div class="number-500">
           <p class="title-number">500+</p>
-          <p class="number-txt">contributions</p>
+          <p class="number-txt">Contributions</p>
         </div>
         <div>
           <p class="title-number">96%</p>
-          <p class="number-txt">Prises en comptes</p>
+          <p class="number-txt">Prises en compte</p>
         </div>
       </div>
       <AppForm />
@@ -293,6 +293,7 @@ export default {
 
   .explication-two-items {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .subscription-content {
@@ -337,6 +338,14 @@ export default {
 
   .explication img {
     width: 250px;
+  }
+
+  .txt-center {
+    text-align: center;
+  }
+
+  .btn-center {
+    margin: 0 auto;
   }
 
 }

@@ -1,10 +1,10 @@
 <template>
     <section class="reconfort">
         <div class="reconfort-title">
-            <h5 class="title-blue">Commence dès maintenant tes 30 jours gratuits</h5>
-            <p class="title-blue">Toutes les fonctionnalités Helpizy, sans engagements !</p>
+            <h5 class="title-blue-reconfort">Commence dès maintenant tes 30 jours gratuits</h5>
+            <p class="title-blue-reconfort">Toutes les fonctionnalités Helpizy, sans engagements !</p>
         </div>
-        <div><button>Ca m'intérésse !</button></div>
+        <div><button class="btn-blue-reconfort">Ca m'intérésse !</button></div>
     </section>
 </template>
 
@@ -35,6 +35,14 @@ export default {
     width: 150px;
     height: 50px;
     cursor: pointer;
+}
+
+.title-blue-reconfort {
+    color: #207BDD;
+}
+
+.btn-blue-reconfort {
+    background-color: #207BDD;
 }
 
 @media screen and (max-width:1080px) {

@@ -8,7 +8,7 @@
             </div>
             <div class="nav-footer">
                 <div>
-                    <p>Produit</p>
+                    <p class="title-footer">Produit</p>
                     <ul>
                         <li><a href="#">Thèmes</a></li>
                         <li><a href="#">Abonnement</a></li>
@@ -16,7 +16,7 @@
                     </ul>
                 </div>
                 <div>
-                    <p>Ressources</p>
+                    <p class="title-footer">Ressources</p>
                     <ul>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Newsletter</a></li>
@@ -29,7 +29,7 @@
                 <p class="newsletter-text">Reste informé(e) de nos derniers conseils !</p>
                 <div class="newsletter-form">
                     <input type="email" placeholder="Entrer mon adresse email" class="newsletter-input" />
-                    <button>S'inscrire</button>
+                    <button class="news-btn">S'inscrire</button>
                 </div>
             </div>
 
@@ -111,6 +111,14 @@ input::placeholder {
     margin-left: 15px;
     width: 100px;
     cursor: pointer;
+}
+
+.title-footer {
+    font-weight: 700;
+}
+
+.news-btn {
+    background-color: #FFA500;
 }
 
 @media screen and (max-width:1080px) {

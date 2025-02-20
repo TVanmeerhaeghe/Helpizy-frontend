@@ -15,6 +15,25 @@ const routes = [
     name: 'ArticleDetails',
     component: ArticleDetails,
     props: true,
+    beforeEnter: async (to, from, next) => {
+      const articleId = to.params.id;
+      try {
+        const response = await fetch(`${process.env.VUE_APP_API_URL}/post/${articleId}`);
+        const article = await response.json();
+
+        if (article.is_premium) {
+          const token = localStorage.getItem('authToken');
+          if (!token) {
+            return next({ name: 'Login' });
+          }
+        }
+
+        next();
+      } catch (error) {
+        console.error(error);
+        next({ name: 'NotFound' });
+      }
+    }
   },
   {
     path: '/category/:id',

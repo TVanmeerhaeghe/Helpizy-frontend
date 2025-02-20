@@ -1,17 +1,24 @@
 <template>
     <div class="result-container">
-        <h2 v-if="categoryName">{{ categoryName }}</h2>
+        <p v-if="categoryName" class="txt-center">{{ posts.length }} résultat{{ posts.length > 1 ? 's' : '' }}</p>
         <p v-else-if="searchQuery" class="nb-result">
             {{ posts.length }} résultat{{ posts.length > 1 ? 's' : '' }} trouvé{{ posts.length > 1 ? 's' : '' }}
             pour "{{ searchQuery }}"
         </p>
         <ul v-if="posts.length">
-            <li v-for="post in posts" :key="post.id_post" class="post-item" @click="goToArticle(post.id_post)">
+            <li v-for="post in posts" :key="post.id_post" class="post-item" @click="goToArticle(post)"
+                :class="{ 'disabled': post.is_premium && !authToken }">
                 <div class="post-thumbnail">
                     <img :src="post.thumbnail" alt="Miniature" @error="handleImageError" />
                 </div>
                 <div class="post-details">
-                    <h4>{{ post.title }}</h4>
+                    <div class="flex-premium">
+                        <div v-if="post.is_premium" class="badge-premium">
+                            <p>0.75€</p>
+                            <img src="@/assets/article/premium.svg" alt="Picto Premium">
+                        </div>
+                    </div>
+                    <h4 class="font-nunito">{{ post.title }}</h4>
                     <div class="post-counters">
                         <p>
                             <img src="@/assets/article/clock.svg" alt="Temps de lecture" />
@@ -53,6 +60,7 @@ export default {
         return {
             categoryName: "",
             posts: [],
+            authToken: localStorage.getItem('authToken') || null,
         };
     },
     methods: {
@@ -90,6 +98,7 @@ export default {
                             views: post.views || 0,
                             readTime: Math.floor(Math.random() * 10) + 1,
                             downloads: Math.floor(Math.random() * 100),
+                            is_premium: post.is_premium === true
                         };
                     });
                 }
@@ -109,6 +118,7 @@ export default {
                             views: post.views || 0,
                             readTime: Math.floor(Math.random() * 10) + 1,
                             downloads: Math.floor(Math.random() * 100),
+                            is_premium: post.is_premium === true
                         };
                     });
                 }
@@ -119,8 +129,15 @@ export default {
         handleImageError(e) {
             e.target.src = require('../../public/placeholder.jpg');
         },
-        goToArticle(articleId) {
-            this.$router.push({ name: "ArticleDetails", params: { id: articleId } });
+        goToArticle(post) {
+            if (post.is_premium) {
+                if (!this.authToken) {
+                    alert('Vous devez être connecté pour accéder au contenu premium.');
+                    return;
+                }
+            }
+
+            this.$router.push({ name: "ArticleDetails", params: { id: post.id_post } });
         },
     },
     watch: {
@@ -192,6 +209,50 @@ li.post-item {
     margin-bottom: 50px;
 }
 
+.font-nunito {
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    color: black;
+}
+
+.badge-premium {
+    background-color: white;
+    display: flex;
+    width: 100px;
+    justify-content: center;
+    box-shadow: 0px 4px 4px 0px #0000000F;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.post-thumbnail {
+    display: flex;
+    align-items: flex-end;
+}
+
+.badge-premium img {
+    width: 30px;
+    margin-left: 15px;
+}
+
+.badge-premium p {
+    font-size: 13px;
+    color: #7D7D7E;
+}
+
+.flex-premium {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
 @media screen and (max-width:760px) {
     li.post-item {
         padding: 10px 20px;
@@ -208,6 +269,30 @@ li.post-item {
     .post-thumbnail img {
         width: 75px;
         height: 75px;
+    }
+
+    .txt-center {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .post-counters {
+        justify-content: space-between;
+    }
+
+    .badge-premium img {
+        width: 25px;
+        margin-left: 10px;
+    }
+
+    .badge-premium {
+        width: 100px;
+        padding: 10px 5px;
+        align-items: center;
+    }
+
+    .badge-premium p {
+        margin: unset;
     }
 }
 </style>
