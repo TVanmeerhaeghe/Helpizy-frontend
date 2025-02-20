@@ -35,8 +35,8 @@
         <div v-if="author" class="author-info">
             <div class="author">
                 <img :src="author.profile_picture
-                        ? getAuthorPicture(author.profile_picture)
-                        : require('../../public/profile.jpg')
+                    ? getAuthorPicture(author.profile_picture)
+                    : require('../../public/profile.jpg')
                     " alt="Photo de l'auteur" @error="handleAuthorImageError" />
                 <p>
                     <span class="bold">{{ author.firstname }}</span> <br />
@@ -51,7 +51,7 @@
                     }}
                 </p>
                 <p>
-                    <img src="../assets/article/dl.svg" alt="picto téléchargement" />5
+                    <img src="../assets/article/dl.svg" alt="picto téléchargement" />
                 </p>
             </div>
         </div>
