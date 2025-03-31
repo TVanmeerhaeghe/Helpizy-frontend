@@ -34,28 +34,28 @@ export default {
     return {
       categories: [
         {
-          id: 1,
+          id: 40,
           imgSrc: require('@/assets/home/Grow Plants Home Garden.png'),
           title: 'Tâches quotidiennes',
           description:
             'Faire une lessive, détartrer une douche, utiliser un fer à repasser, monter un clic-clac,..',
         },
         {
-          id: 2,
+          id: 35,
           imgSrc: require('@/assets/home/Documents 1.png'),
           title: 'Administration',
           description:
             'Faire une déclaration d’assurance, remplir un constat, changer de banque, déclarer un changement d’adresse,..',
         },
         {
-          id: 3,
+          id: 41,
           imgSrc: require('@/assets/home/Car 2.png'),
           title: 'Entretien du véhicule',
           description:
             'Changer une ampoule, des essuies glaces, remplacer l’huile moteur, changer une roue,..',
         },
         {
-          id: 4,
+          id: 42,
           imgSrc: require('@/assets/home/Becoming Rich 9.png'),
           title: 'Aides gouvernementales',
           description:

@@ -1,24 +1,14 @@
 <template>
   <section class="article">
-    <router-link
-      v-for="post in articles"
-      :key="post.id_post"
-      :to="`/article/${post.id_post}`"
-      class="post-item"
-      style="text-decoration: none; color: inherit"
-    >
-      <img
-        :src="post.thumbnail"
-        alt="Thumbnail"
-        @error="handleImageError"
-        class="img-home-article"
-      />
+    <router-link v-for="post in articles" :key="post.id_post" :to="`/article/${post.id_post}`" class="post-item"
+      style="text-decoration: none; color: inherit">
+      <img :src="post.thumbnail" alt="Thumbnail" @error="handleImageError" class="img-home-article" />
       <h5>{{ post.categoryName }}</h5>
       <div class="title-content">
         <h3>{{ post.postTitle }}</h3>
         <img src="../assets/global/arrow-up-right.svg" alt="" />
       </div>
-      <p>{{ post.excerpt }}</p>
+      <p>{{ truncate(post.excerpt, 150) }}</p>
     </router-link>
   </section>
 </template>
@@ -81,6 +71,11 @@ export default {
       const shortDescription = words.slice(0, 20).join(' ');
       return words.length > 20 ? shortDescription + '...' : shortDescription;
     },
+    truncate(text, maxLength) {
+      if (!text) return '';
+      const stripped = text.replace(/<[^>]*>?/gm, '');
+      return stripped.length > maxLength ? stripped.slice(0, maxLength) + '…' : stripped;
+    },
     handleImageError(event) {
       event.target.src = '../../placeholder.jpg';
     },
@@ -90,7 +85,7 @@ export default {
 
 <style scoped>
 .article {
-  height: 500px;
+  height: 600px;
   width: 1000px;
   display: flex;
   align-items: flex-start;
@@ -140,7 +135,7 @@ export default {
 
 .post-item h3 {
   font-family: 'Nunito', sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
   margin-top: 12px;
 }
